@@ -65,6 +65,19 @@ class LinkedList {
     }
     return current;
   }
+
+  // get Node at given index
+  at(index) {
+    const listSize = this.size();
+    if (index > listSize || index ===0) return null;
+    let currentIndex = 1;
+    let current = this.head;
+    while (currentIndex < index) {
+      currentIndex++;
+      current = current.next;
+    }
+    return current;
+  }
 }
 const elements = [3, 2, 4, 5, 6, 8, 1, 7];
 const newList = new LinkedList();
@@ -74,4 +87,4 @@ for (element of elements) {
 
 newList.prepend(11);
 console.log(newList);
-console.log("tail Node", newList.tail());
+console.log("node at 3", newList.at(8));
