@@ -69,7 +69,7 @@ class LinkedList {
   // get Node at given index
   at(index) {
     const listSize = this.size();
-    if (index > listSize || index ===0) return null;
+    if (index > listSize || index === 0) return null;
     let currentIndex = 1;
     let current = this.head;
     while (currentIndex < index) {
@@ -80,7 +80,7 @@ class LinkedList {
   }
   // Remove last node
   pop() {
-    if (this.head === null) return null
+    if (this.head === null) return null;
     let current = this.head;
     let prev = current;
     while (current.next !== null) {
@@ -90,7 +90,19 @@ class LinkedList {
     prev.next = null;
     return current;
   }
+
+  // Check if value is contained by the list
+  contains(value) {
+    if (this.head === null) return null;
+    let current = this.head;
+    while (current !== null) {
+      if (current.val === value) return true;
+      current = current.next;
+    }
+    return false;
+  }
 }
+
 const elements = [3, 2, 4, 5, 6, 8, 1, 7];
 const newList = new LinkedList();
 for (element of elements) {
@@ -99,6 +111,7 @@ for (element of elements) {
 
 newList.prepend(11);
 console.log(newList);
-console.log("pop", newList.pop(5));
-console.log(newList.size())
-console.log(newList.tail())
+// console.log("pop", newList.pop(5));
+console.log(newList.size());
+console.log(newList.tail());
+console.log(newList.contains(7));
