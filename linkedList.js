@@ -9,7 +9,6 @@ class Node {
 class LinkedList {
   constructor() {
     this.head = null;
-    // this.size = 0;
   }
 
   // Add element to the end
@@ -24,7 +23,6 @@ class LinkedList {
       }
       current.next = newNode;
     }
-    // this.size++;
   }
 
   // Add element to the start of the list
@@ -34,12 +32,11 @@ class LinkedList {
       this.head = newNode;
     } else {
       let next = this.head;
-      // let next = current.next;
+
       this.head = newNode;
       let current = this.head;
       current.next = next;
     }
-    // this.size++;
   }
 
   // Return size of the linked List
@@ -53,6 +50,11 @@ class LinkedList {
     }
     return size;
   }
+
+  // Return head node
+  headNode() {
+    return this.head;
+  }
 }
 const elements = [3, 2, 4, 5, 6, 8, 1, 0];
 const newList = new LinkedList();
@@ -62,4 +64,4 @@ for (element of elements) {
 
 newList.prepend(11);
 console.log(newList);
-console.log('size', newList.size())
+console.log("head Node", newList.headNode());
