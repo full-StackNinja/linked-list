@@ -55,8 +55,18 @@ class LinkedList {
   headNode() {
     return this.head;
   }
+
+  // Return tail node
+  tail() {
+    if (this.head === null) return null;
+    let current = this.head;
+    while (current.next !== null) {
+      current = current.next;
+    }
+    return current;
+  }
 }
-const elements = [3, 2, 4, 5, 6, 8, 1, 0];
+const elements = [3, 2, 4, 5, 6, 8, 1, 7];
 const newList = new LinkedList();
 for (element of elements) {
   newList.append(element);
@@ -64,4 +74,4 @@ for (element of elements) {
 
 newList.prepend(11);
 console.log(newList);
-console.log("head Node", newList.headNode());
+console.log("tail Node", newList.tail());
