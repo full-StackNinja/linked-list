@@ -106,11 +106,28 @@ class LinkedList {
   find(value) {
     if (this.head === null) return null;
     let current = this.head;
-    while (current!== null) {
+    while (current !== null) {
       if (current.val === value) return current;
       current = current.next;
     }
     return null;
+  }
+
+  // Insert at given index
+  insertAt(value, index) {
+    const size = this.size();
+    if (this.head === null || index > size) return null;
+    const newNode = new Node(value);
+    let current = this.head;
+    let prev = current;
+    let iter = 1;
+    while (iter !== index) {
+      iter++;
+      prev = current;
+      current = current.next;
+    }
+    prev.next = newNode;
+    newNode.next = current;
   }
 }
 
@@ -121,9 +138,11 @@ for (element of elements) {
 }
 
 newList.prepend(11);
-console.log(newList);
+
 // console.log("pop", newList.pop(5));
+console.log(newList.insertAt(12, 9));
+console.log("new List", newList);
 console.log(newList.size());
 console.log(newList.tail());
 console.log(newList.contains(7));
-console.log('find', newList.find(7))
+console.log("find", newList.find(7));
