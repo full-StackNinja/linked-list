@@ -151,19 +151,18 @@ class LinkedList {
     }
   }
 
-  // Represent linkedList as string to view them 
+  // Represent linkedList as string to view them
   toString() {
-    if (this.head === null) return null
+    if (this.head === null) return null;
     let current = this.head;
-    let listToStr = []
+    let listToStr = [];
     while (current !== null) {
-      listToStr.push(`(${current.val}) -> `)
+      listToStr.push(`(${current.val}) -> `);
       current = current.next;
     }
-    listToStr.push('null')
-    return listToStr.join("")
+    listToStr.push("null");
+    return listToStr.join("");
   }
-
 }
 
 const elements = [3, 2, 4, 5, 6, 8, 1, 7];
@@ -172,7 +171,9 @@ for (element of elements) {
   newList.append(element);
 }
 
-newList.prepend(11);
+// Tests for all the methods of linkedList:
+
+// newList.prepend(11);
 
 // console.log("pop", newList.pop(5));
 // console.log(newList.insertAt(12, 9));
@@ -183,4 +184,4 @@ newList.prepend(11);
 // console.log("find", newList.find(7));
 // newList.removeAt(1);
 // console.log("new List", newList, newList.size());
-console.log(newList.toString())
+console.log(newList.toString());
