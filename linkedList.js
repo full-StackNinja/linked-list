@@ -129,6 +129,27 @@ class LinkedList {
     prev.next = newNode;
     newNode.next = current;
   }
+
+  // Remove node at given index
+  removeAt(index) {
+    if (this.head === null || index > this.size()) return null;
+    if (index === 1) {
+      this.head = this.head.next;
+    }
+    let current = this.head;
+    let prev = current;
+    let iter = 1;
+    while (iter !== index) {
+      iter++;
+      prev = current;
+      current = current.next;
+    }
+    if (current.next === null) {
+      prev.next = null;
+    } else {
+      prev.next = current.next;
+    }
+  }
 }
 
 const elements = [3, 2, 4, 5, 6, 8, 1, 7];
@@ -140,9 +161,11 @@ for (element of elements) {
 newList.prepend(11);
 
 // console.log("pop", newList.pop(5));
-console.log(newList.insertAt(12, 9));
-console.log("new List", newList);
+// console.log(newList.insertAt(12, 9));
+
 console.log(newList.size());
 console.log(newList.tail());
 console.log(newList.contains(7));
 console.log("find", newList.find(7));
+newList.removeAt(1);
+console.log("new List", newList, newList.size());
