@@ -101,6 +101,17 @@ class LinkedList {
     }
     return false;
   }
+
+  // Find value in the list
+  find(value) {
+    if (this.head === null) return null;
+    let current = this.head;
+    while (current!== null) {
+      if (current.val === value) return current;
+      current = current.next;
+    }
+    return null;
+  }
 }
 
 const elements = [3, 2, 4, 5, 6, 8, 1, 7];
@@ -115,3 +126,4 @@ console.log(newList);
 console.log(newList.size());
 console.log(newList.tail());
 console.log(newList.contains(7));
+console.log('find', newList.find(7))
