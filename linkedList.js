@@ -78,6 +78,18 @@ class LinkedList {
     }
     return current;
   }
+  // Remove last node
+  pop() {
+    if (this.head === null) return null
+    let current = this.head;
+    let prev = current;
+    while (current.next !== null) {
+      prev = current;
+      current = current.next;
+    }
+    prev.next = null;
+    return current;
+  }
 }
 const elements = [3, 2, 4, 5, 6, 8, 1, 7];
 const newList = new LinkedList();
@@ -87,4 +99,6 @@ for (element of elements) {
 
 newList.prepend(11);
 console.log(newList);
-console.log("node at 3", newList.at(8));
+console.log("pop", newList.pop(5));
+console.log(newList.size())
+console.log(newList.tail())
